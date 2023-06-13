@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using MeuCondominio.Models;
 
 namespace MeuCondominio.Data
 {
@@ -9,5 +10,6 @@ namespace MeuCondominio.Data
             : base(options)
         {
         }
+        public DbSet<MeuCondominio.Models.Resident>? Resident { get; set; }
     }
 }
