@@ -4,6 +4,7 @@ using MeuCondominio.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MeuCondominio.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230613223555_OccurrencesUpdate")]
+    partial class OccurrencesUpdate
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -103,15 +105,14 @@ namespace MeuCondominio.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("ResidentId")
-                        .HasColumnType("int");
+                    b.Property<string>("Perpetrator")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("TypeOccurrence")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("ResidentId");
 
                     b.ToTable("Occurrence");
                 });
@@ -370,17 +371,6 @@ namespace MeuCondominio.Data.Migrations
                         .IsRequired();
 
                     b.Navigation("Building");
-                });
-
-            modelBuilder.Entity("MeuCondominio.Models.Occurrence", b =>
-                {
-                    b.HasOne("MeuCondominio.Models.Resident", "Resident")
-                        .WithMany()
-                        .HasForeignKey("ResidentId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Resident");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
