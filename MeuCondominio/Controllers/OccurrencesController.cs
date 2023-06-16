@@ -24,9 +24,8 @@ namespace MeuCondominio.Controllers
         // GET: Occurrences
         public async Task<IActionResult> Index()
         {
-              return _context.Occurrence != null ? 
-                          View(await _context.Occurrence.ToListAsync()) :
-                          Problem("Entity set 'ApplicationDbContext.Occurrence'  is null.");
+            var applicationDbContext = _context.Occurrence.Include(r => r.Resident);
+            return View(await applicationDbContext.ToListAsync());
         }
 
         // GET: Occurrences/Details/5
@@ -38,6 +37,7 @@ namespace MeuCondominio.Controllers
             }
 
             var occurrence = await _context.Occurrence
+                .Include(r => r.Resident)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (occurrence == null)
             {
@@ -119,6 +119,7 @@ namespace MeuCondominio.Controllers
             }
 
             var occurrence = await _context.Occurrence
+                .Include(r => r.Resident)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (occurrence == null)
             {
