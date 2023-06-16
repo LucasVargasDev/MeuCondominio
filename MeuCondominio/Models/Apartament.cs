@@ -11,6 +11,7 @@ namespace MeuCondominio.Models
         [Display(Name = "Andar")]
         public int Floor { get; set; }
         public int BuildingId { get; set; }
+        [Display(Name = "Prédio")]
         public Building Building { get; set; }
 
         public Apartment() { }
