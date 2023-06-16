@@ -9,10 +9,13 @@ namespace MeuCondominio.Models.Abstract
 
         [Display(Name = "Nome")]
         public string Name { get; set; }
+        [Display(Name = "E-mail")]
         public string Email { get; set; }
+        [Display(Name = "CPF")]
         public string Cpf { get; set; }
+        [Display(Name = "Telefone")]
         public string Phone { get; set; }
-
+        [Display(Name = "Data de nascimento")]
         [DataType(DataType.Date)]
         public DateTime BirthDate { get; set; }
 

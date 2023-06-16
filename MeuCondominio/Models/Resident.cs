@@ -1,12 +1,20 @@
 ﻿using MeuCondominio.Models.Abstract;
+using System.ComponentModel.DataAnnotations;
+using System.Xml.Linq;
 
 namespace MeuCondominio.Models
 {
     public class Resident : Person
     {
+        [Display(Name = "Número de emergência")]
         public string EmergencyNumber { get; set; }
+
+        [Display(Name = "Código do Ifood")]
         public string IfoodCode { get; set; }
+
+        [Display(Name = "Síndico")]
         public Boolean IsManager { get; set; }
+
         public Resident() { }
 
         public Resident(
