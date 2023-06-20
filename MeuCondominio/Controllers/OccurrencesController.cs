@@ -51,7 +51,6 @@ namespace MeuCondominio.Controllers
         public IActionResult Create()
         {
             var viewModel = new OccurrenceFormViewModel();
-            viewModel.TypeOccurrences = Enum.GetValues(typeof(TypeOccurrence)).Cast<TypeOccurrence>().ToList();
             viewModel.Residents = _context.Resident.ToList();
 
             return View(viewModel);
@@ -86,7 +85,6 @@ namespace MeuCondominio.Controllers
 
             OccurrenceFormViewModel occurrenceFormViewModel = new OccurrenceFormViewModel();
             occurrenceFormViewModel.Occurrence = occurrence;
-            occurrenceFormViewModel.TypeOccurrences = Enum.GetValues(typeof(TypeOccurrence)).OfType<TypeOccurrence>().ToList();
             occurrenceFormViewModel.Residents = _context.Resident.ToList();
 
             return View(occurrenceFormViewModel);
