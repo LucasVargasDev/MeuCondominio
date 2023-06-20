@@ -1,0 +1,22 @@
+﻿@page
+@model MeuCondominio.Pages.Error.ErrorModel
+@{
+    ViewData["Title"] = "Erro";
+    Layout = "_Layout";
+}
+
+<section class="section">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header">Erro</div>
+                    <div class="card-body">
+                        <h3 class="card-title">Ops, ocorreu um erro.</h3>
+                        <p class="card-text">@ViewData["ErrorMessage"]</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

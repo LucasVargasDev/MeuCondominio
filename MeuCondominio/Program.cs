@@ -20,11 +20,15 @@ var app = builder.Build();
 if (app.Environment.IsDevelopment())
 {
     app.UseMigrationsEndPoint();
+    //Professor, mantive o trecho abaixo para as paginas serem exibidas no ambiente de desenvolvimento.
+    app.UseExceptionHandler("/Error/Error");
+    app.UseStatusCodePagesWithReExecute("/Error/{0}");
+    //Acaba aqui.
 }
 else
 {
-    app.UseExceptionHandler("/Home/Error");
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
+    app.UseExceptionHandler("/Error/Error");
+    app.UseStatusCodePagesWithReExecute("/Error/{0}");
     app.UseHsts();
 }
 
