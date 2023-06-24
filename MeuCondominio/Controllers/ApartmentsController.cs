@@ -8,9 +8,11 @@ using Microsoft.EntityFrameworkCore;
 using MeuCondominio.Data;
 using MeuCondominio.Models;
 using MeuCondominio.Models.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 
 namespace MeuCondominio.Controllers
 {
+    [Authorize]
     public class ApartmentsController : Controller
     {
         private readonly ApplicationDbContext _context;
