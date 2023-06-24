@@ -1,6 +1,4 @@
-﻿using MeuCondominio.Models.Enums;
-
-namespace MeuCondominio.Models.ViewModels
+﻿namespace MeuCondominio.Models.ViewModels
 {
     public class OccurrenceFormViewModel
     {
