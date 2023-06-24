@@ -20,10 +20,10 @@ var app = builder.Build();
 if (app.Environment.IsDevelopment())
 {
     app.UseMigrationsEndPoint();
-    // Professor, mantive o trecho abaixo para as páginas serem exibidas no ambiente de desenvolvimento.
+    //Professor, mantive o trecho abaixo para as paginas serem exibidas no ambiente de desenvolvimento.
     app.UseExceptionHandler("/Error/Error");
     app.UseStatusCodePagesWithReExecute("/Error/{0}");
-    // Acaba aqui.
+    //Acaba aqui.
 }
 else
 {
