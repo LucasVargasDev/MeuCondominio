@@ -1,8 +1,80 @@
-﻿@{
+﻿@using MeuCondominio.Models.ViewModels
+@using Newtonsoft.Json
+
+@{
     ViewData["Title"] = "Dashboard";
 }
 
 <div class="text-center">
     <h1 class="display-4">Bem-vindo</h1>
-    Aqui serão adicionados alguns gráficos para substituir por relatórios.
+    <canvas id="myChartApartment" style="width: 50%; height: 50%;"></canvas>
+    <canvas id="myChartOccurrence" style="width: 50%; height: 50%;"></canvas>
 </div>
+
+@section scripts {
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        var apartmentChartData = {
+            labels: @Html.Raw(JsonConvert.SerializeObject(Model.ApartmentChart.Labels)),
+            values: @Html.Raw(JsonConvert.SerializeObject(Model.ApartmentChart.Values))
+        };
+
+        var apartmentContext = document.getElementById('myChartApartment').getContext('2d');
+
+        var apartmentChart = new Chart(apartmentContext, {
+            type: 'bar',
+            data: {
+                labels: apartmentChartData.labels,
+                datasets: [{
+                    label: 'Número de Apartamentos por andar',
+                    data: apartmentChartData.values,
+                    backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        min: 0,
+                        ticks: {
+                            stepSize: 1
+                        }
+                    }
+                }
+            }
+        });
+
+        var occurrenceChartData = {
+            labels: @Html.Raw(JsonConvert.SerializeObject(Model.OccurrenceChart.Labels)),
+            values: @Html.Raw(JsonConvert.SerializeObject(Model.OccurrenceChart.Values))
+                };
+
+        var occurrenceContext = document.getElementById('myChartOccurrence').getContext('2d');
+        var occurrenceChart = new Chart(occurrenceContext, {
+            type: 'bar',
+            data: {
+                labels: occurrenceChartData.labels,
+                datasets: [{
+                    label: 'Número de Ocorrências por residente',
+                    data: occurrenceChartData.values,
+                    backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                    borderColor: 'rgba(255, 99, 132, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        min: 0,
+                        ticks: {
+                            stepSize: 1
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+}
