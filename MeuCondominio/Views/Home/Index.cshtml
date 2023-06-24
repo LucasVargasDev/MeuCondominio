@@ -1,5 +1,8 @@
 ﻿@using MeuCondominio.Models.ViewModels
 @using Newtonsoft.Json
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
 
 @{
     ViewData["Title"] = "Dashboard";
@@ -7,6 +10,7 @@
 
 <div class="text-center">
     <h1 class="display-4">Bem-vindo</h1>
+    <h3>@UserManager.GetUserName(User)</h3>
     <canvas id="myChartApartment" style="width: 50%; height: 50%;"></canvas>
     <canvas id="myChartOccurrence" style="width: 50%; height: 50%;"></canvas>
 </div>

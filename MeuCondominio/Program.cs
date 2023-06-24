@@ -10,7 +10,7 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(connectionString));
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
-builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = false)
     .AddEntityFrameworkStores<ApplicationDbContext>();
 builder.Services.AddControllersWithViews();
 
@@ -20,10 +20,10 @@ var app = builder.Build();
 if (app.Environment.IsDevelopment())
 {
     app.UseMigrationsEndPoint();
-    //Professor, mantive o trecho abaixo para as paginas serem exibidas no ambiente de desenvolvimento.
+    // Professor, mantive o trecho abaixo para as páginas serem exibidas no ambiente de desenvolvimento.
     app.UseExceptionHandler("/Error/Error");
     app.UseStatusCodePagesWithReExecute("/Error/{0}");
-    //Acaba aqui.
+    // Acaba aqui.
 }
 else
 {

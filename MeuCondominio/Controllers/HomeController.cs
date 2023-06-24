@@ -1,12 +1,14 @@
 ﻿using MeuCondominio.Data;
 using MeuCondominio.Models;
 using MeuCondominio.Models.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Diagnostics;
 
 namespace MeuCondominio.Controllers
 {
+    [Authorize]
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;

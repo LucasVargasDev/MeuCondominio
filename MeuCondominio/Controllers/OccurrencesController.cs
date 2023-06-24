@@ -9,9 +9,11 @@ using MeuCondominio.Data;
 using MeuCondominio.Models;
 using MeuCondominio.Models.ViewModels;
 using MeuCondominio.Models.Enums;
+using Microsoft.AspNetCore.Authorization;
 
 namespace MeuCondominio.Controllers
 {
+    [Authorize]
     public class OccurrencesController : Controller
     {
         private readonly ApplicationDbContext _context;
