@@ -26,6 +26,9 @@
                 <label class="form-check-label">
                     <input class="form-check-input" asp-for="IsManager" /> @Html.DisplayNameFor(model => model.IsManager)
                 </label>
+                <div class="mt-2">
+                    <span asp-validation-for="IsManager" class="text-danger"></span>
+                </div>
             </div>
             <input type="hidden" asp-for="Id" />
             <div class="form-group">
