@@ -1,6 +1,6 @@
 ﻿using MeuCondominio.Models.Abstract;
+using MeuCondominio.Models.CustomValidation;
 using System.ComponentModel.DataAnnotations;
-using System.Xml.Linq;
 
 namespace MeuCondominio.Models
 {
@@ -13,6 +13,7 @@ namespace MeuCondominio.Models
         public string IfoodCode { get; set; }
 
         [Display(Name = "Síndico")]
+        [ResidentValidation]
         public Boolean IsManager { get; set; }
 
         public Resident() { }

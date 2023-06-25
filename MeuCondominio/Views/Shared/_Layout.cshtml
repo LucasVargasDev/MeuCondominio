@@ -26,7 +26,7 @@
                         <partial name="_LoginPartial" />
                         @if(SignInManager.IsSignedIn(User))
                         {
-                            <form id="logoutForm" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home")" method="post" class="form-inline">
+                            <form id="logoutForm" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home")" method="post" style="position: absolute; right: 25px; bottom: 25px;" class="form-inline">
                                 <button type="submit" class="btn btn-link nav-link">Sair</button>
                             </form>
                         }
